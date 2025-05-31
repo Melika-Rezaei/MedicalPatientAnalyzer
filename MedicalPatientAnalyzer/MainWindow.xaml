@@ -1,0 +1,40 @@
+﻿<Window x:Class="MedicalPatientAnalyzer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Medical Analyzer" Height="400" Width="600">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="0 0 0 10" FlowDirection="RightToLeft">
+            <StackPanel Margin="5">
+                <TextBlock Text="نام بیمار"/>
+                <TextBox x:Name="txtName" Width="150"/>
+            </StackPanel>
+            <StackPanel Margin="5">
+                <TextBlock Text="قد (cm)"/>
+                <TextBox x:Name="txtHeight" Width="100"/>
+            </StackPanel>
+            <StackPanel Margin="5">
+                <TextBlock Text="وزن (kg)"/>
+                <TextBox x:Name="txtWeight" Width="100"/>
+            </StackPanel>
+            <Button x:Name="btnAdd" Content="محاسبه و ذخیره" Margin="10 25" Click="btnAdd_Click" Padding="8,4,8,4"/>
+        </StackPanel>
+
+        <DataGrid x:Name="dataGridPatients" Grid.Row="2" AutoGenerateColumns="False" CanUserAddRows="False" 
+                 
+                  FlowDirection="RightToLeft" 
+                  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="نام" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="قد (cm)" Binding="{Binding Height}" />
+                <DataGridTextColumn Header="وزن (kg)" Binding="{Binding Weight}" />
+                <DataGridTextColumn Header="BMI" Binding="{Binding BMI}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
